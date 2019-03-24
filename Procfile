@@ -1,1 +1,1 @@
-web: gunicorn app.flask:app --log-file -
+web: gunicorn app.flask:app --log-level=debug --log-file -

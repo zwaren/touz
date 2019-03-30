@@ -18,7 +18,7 @@ class Text:
         return 100
 
     def __repr__(self):
-        return str(self)
+        return str(self.sentences)
 
     def __str__(self):
         return str(self.sentences)
@@ -35,9 +35,16 @@ class Sentence:
 
     def compare_with(self, other): pass
 
+    def get_json(self):
+        return {
+            'offset': self.offset,
+            'length': self.length,
+            'checked': self.checked,
+            'stems': self.stems
+        }
+
     def __repr__(self):
-        return str(self)
+        return str(self.get_json())
 
     def __str__(self):
-        return "{{'offset': {0}, 'length': {1}, 'checked': {2}, 'stems': {3}}}" \
-            .format(self.offset, self.length, self.checked, self.stems)
+        return str(self.get_json())

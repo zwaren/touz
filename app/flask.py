@@ -26,7 +26,7 @@ def testing():
     text = Text(FISH_TEXT)
     if request.is_json:
         text = Text(request.get_json())
-    return jsonify(text)
+    return jsonify(text.get_json())
 
 
 if __name__ == '__main__':

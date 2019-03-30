@@ -2,5 +2,6 @@
     "python.linting.pylintEnabled": true,
     "files.exclude": {
         "**/.git": false
-    }
+    },
+    "python.pythonPath": "venv\\Scripts\\python.exe"
 }

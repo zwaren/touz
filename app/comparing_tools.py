@@ -17,8 +17,11 @@ class Text:
     def compare_with(self, other):
         return 100
 
+    def __repr__(self):
+        return str(self)
+
     def __str__(self):
-        return self.sentences
+        return str(self.sentences)
 
 
 class Sentence:
@@ -32,6 +35,9 @@ class Sentence:
 
     def compare_with(self, other): pass
 
+    def __repr__(self):
+        return str(self)
+
     def __str__(self):
-        return "\{'offset': {}, 'length': {}, 'checked': {}, 'stems': {}\}" \
-        .format(self.offset, self.length, self.checked, self.stems)
+        return "{{'offset': {0}, 'length': {1}, 'checked': {2}, 'stems': {3}}}" \
+            .format(self.offset, self.length, self.checked, self.stems)

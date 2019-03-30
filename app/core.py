@@ -1,9 +1,12 @@
 def compare(text1, text2):
     from app.comparing_tools import Text
 
-    (text1, text2) = (Text(text1), Text(text2))
+    if len(text1) > len(text2):
+        text1, text2 = text2, text1
+        
+    text1, text2 = Text(text1), Text(text2)
 
-    if text1.compare_by_theme_with(text2):
+    if text1.compare_by_theme_with(text2) < .75:
         return {'percent': 0, 'text1': [], 'text2': []}
 
     return {

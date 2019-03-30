@@ -17,6 +17,9 @@ class Text:
     def compare_with(self, other):
         return 100
 
+    def get_json(self):
+        return [sent.get_json() for sent in self.sentences]
+
     def __repr__(self):
         return str(self.sentences)
 

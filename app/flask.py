@@ -21,7 +21,7 @@ def texts_compare():
     return jsonify(response)
 
 
-@app.route('/text', methods=['GET'])
+@app.route('/text', methods=['GET', 'POST'])
 def testing():
     text = Text(FISH_TEXT)
     if request.is_json:

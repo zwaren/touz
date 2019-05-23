@@ -62,11 +62,15 @@ class Sentence:
 
     def compare_with(self, other):
         similarity = 0
+        arr = []
         for i in range(len(self.stems)):
-            if self.stems[i]['gr'][0] == other.stems[i]['gr'][0]:
-                similarity += .5
-                if self.stems[i]['lex'] == other.stems[i]['lex']:
-                    similarity += .5
+            for j in range(len(other.stems)):
+                if j not in arr:
+                    # if self.stems[i]['gr'][0] == other.stems[j]['gr'][0]:
+                    #     similarity += .5
+                    if self.stems[i]['lex'] == other.stems[j]['lex']:
+                        arr.append(j)
+                        similarity += 1
         return similarity / len(self.stems)
 
     def get_json(self):
@@ -86,6 +90,6 @@ class Sentence:
 
 if __name__ == "__main__":
     x = Text('Значимость этих проблем настолько очевидна, что сложившаяся структура организации играет важную роль в формировании систем массового участия')
-    y = Text("Значимость этих проблем настолько понятна, что получившаяся модель организации играет важную роль в формировании систем массового участия")
+    y = Text("Значимость этих проблем понятна, что получившаяся модель организации играет важную роль в формировании систем массового участия")
     print(x.compare_with(y))
     print("x: {0}\ny: {1}".format(x, y))
